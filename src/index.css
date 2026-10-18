@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-1: #ff4d9d;
+  --bg-2: #ffb347;
+  --bg-3: #5b2a1e;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: #1a0d12;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff4d9d, #ffb347);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff2d86, #ff9d2d);
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl;
+  }
+  .glass-strong {
+    @apply bg-white/15 backdrop-blur-xl border border-white/25 shadow-2xl;
+  }
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-donut-pink via-donut-gold to-donut-pink bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+  .btn-glow {
+    @apply px-7 py-3.5 rounded-2xl font-semibold text-white bg-white/10 backdrop-blur-md border border-white/30 shadow-glow-pink transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-glow-pink;
+  }
+}
+
+/* Reusable marquee track */
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
